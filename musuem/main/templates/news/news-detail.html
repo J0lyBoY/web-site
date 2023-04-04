@@ -1,0 +1,20 @@
+{% extends 'main/main.html'%}
+{% load static %}
+{% block title %}
+Новость
+{% endblock %}
+
+{% block content %}
+<div class="full-news">
+    <section class="py-5 text-center container">
+        <div class="row py-lg-5">
+            <div class="col-lg-6 col-md-8 mx-auto" id="text">
+                <h1 class="fw-light">{{ News.title }}</h1>
+                <p class="lead text-muted">
+                    {{ News.full_text }}
+                </p>
+            </div>
+        </div>
+    </section>
+</div>
+{% endblock %}

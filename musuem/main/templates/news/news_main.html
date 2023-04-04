@@ -1,0 +1,38 @@
+{% extends 'main/main.html'%}
+
+{% block title %}
+Новости музея
+{% endblock %}
+
+{% block content %}
+{% if news %}
+{% for el in news %}
+<div class="news">
+    <div class="accordion accordion-flush" id="accordionFlushExample">
+        <div class="accordion-item">
+            <h2 class="accordion-header" id="flush-headingOne">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
+                    {{ el.title }}
+                </button>
+            </h2>
+            <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne"
+                 data-bs-parent="#accordionFlushExample">
+                <div class="accordion-body">{{ el.short_text }}</div>
+            </div>
+            <button type="button" class="btn btn-primary"><a href="{% url 'news-detail' el.id %}" style="color: white"> читать детальнее</a>
+            </button>
+        </div>
+    </div>
+</div>
+
+{% endfor %}
+{% else %}
+<div class="news">
+    <p>У вас пока что нет новостей </p>
+</div>
+{% endif %}
+<div class="news">
+    <button type="button" class="btn btn-primary"><a href="create" class="nav-link">Добавление новостей</a></button>
+</div>
+{% endblock %}

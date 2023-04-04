@@ -1,0 +1,89 @@
+{% extends 'main/main.html'%}
+{% load static %}
+{% block title %}
+Панорамная фотография экспозиции 'Старый Брянск и Учителя нашей гимназии '
+{% endblock %}
+
+{% block content %}
+<style>
+        #panorama {
+            width: 600px;
+            height: 400px;
+        }
+
+
+</style>
+
+<div id="panorama">
+    <script>
+pannellum.viewer('panorama', {
+    "default": {
+        "firstScene": "corner",
+        "sceneFadeDuration": 1000
+    },
+
+    "scenes": {
+        "corner": {
+            "title": "поэтический уголок",
+            "hfov": 110,
+            "pitch": -3,
+            "yaw": 117,
+            "type": "equirectangular",
+            "panorama": "{% static 'main/pictures/panoram_photos/IMG_20230209_091744.jpg' %}",
+            "hotSpots": [
+                {
+                    "pitch": -2.1,
+                    "yaw": 132.9,
+                    "type": "scene",
+                    "text": "Памятник С.В.Василёву",
+                    "sceneId": "circle"
+                }
+            ]
+        },
+        "circle": {
+            "title": "Памятник С.В.Василёву",
+            "hfov": 110,
+            "pitch": -3,
+            "yaw": 117,
+            "type": "equirectangular",
+            "panorama": "{% static 'main/pictures/panoram_photos/photo_2023-01-28_22-44-55.jpg' %}",
+            "hotSpots": [
+                {
+                    "pitch": -2.1,
+                    "yaw": 132.9,
+                    "type": "scene",
+                    "text": "Выпускники гимназии и старый Брянск",
+                    "sceneId": "house"
+                }
+            ]
+        },
+
+
+        "house": {
+            "title": "Выпускники гимназии",
+            "hfov": 110,
+            "yaw": 5,
+            "type": "equirectangular",
+            "panorama": "{% static 'main/pictures/panoram_photos/photo_2023-01-28_22-45-30.jpg' %}",
+
+            "hotSpots": [
+                {
+                    "pitch": -0.6,
+                    "yaw": 37.1,
+                    "type": "scene",
+                    "text": "Поэтический уголок",
+                    "sceneId": "corner",
+                    "targetYaw": -23,
+                    "targetPitch": 2
+                }
+            ]
+        },
+
+    }
+});
+
+    </script>
+</div>
+
+
+{% endblock %}
