@@ -19,9 +19,8 @@
             <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne"
                  data-bs-parent="#accordionFlushExample">
                 <div class="accordion-body">{{ el.short_text }}</div>
+                <button type="button"  class="btn btn-primary"><a href="{% url 'news-detail' el.id %}" style="color: white"> читать детальнее</a></button>
             </div>
-            <button type="button" class="btn btn-primary"><a href="{% url 'news-detail' el.id %}" style="color: white"> читать детальнее</a>
-            </button>
         </div>
     </div>
 </div>
